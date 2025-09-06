@@ -1,0 +1,43 @@
+name: Deploy to Prod
+
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        env:
+            CI: true
+            NPM_CONFIG_FUND: false
+            NPM_CONFIG_AUDIT: false
+            NPM_CONFIG_LEGACY_PEER_DEPS: true
+
+        steps:
+            - name: Checkout (optional)
+              uses: actions/checkout@v4
+
+            - name: Deploy over SSH
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  port: ${{ secrets.SSH_PORT }}
+                  script_stop: true
+                  script: |
+                      set -e
+                      cd /home/ubuntu/projects/chat.heboba.dev
+                      git fetch --all
+                      git reset --hard origin/main
+
+                      # env for prod override (Traefik and frontend build directory)
+                      export SITE_HOST=${{ secrets.SITE_HOST }}
+                      export BUILD_DIR=dist
+
+                      # build and deploy
+                      docker compose -f docker-compose.yml -f docker-compose.prod.yml build --no-cache
+                      docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
+
+                      # cleanup
+                      docker image prune -f
