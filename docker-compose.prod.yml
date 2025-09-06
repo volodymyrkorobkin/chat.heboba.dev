@@ -1,5 +1,5 @@
 services:
-    ${TRAEFIK_ROUTER_NAME}:
+    chat:
         labels:
             - "traefik.enable=true"
             # Router
@@ -12,6 +12,6 @@ services:
             - web
 
 networks:
-    traefik:
+    web:
         external: true
         name: web
