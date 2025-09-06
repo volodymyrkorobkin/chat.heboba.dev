@@ -1,0 +1,1 @@
+chat.heboba.dev is a simple chant application built with React. The main goal of this project is to improve skills with Docker, pipelines, pull requests and open source contribution. More features will be added in the future.
