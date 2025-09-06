@@ -1,0 +1,17 @@
+services:
+    ${TRAEFIK_ROUTER_NAME}:
+        labels:
+            - "traefik.enable=true"
+            # Router
+            - "traefik.http.routers.${TRAEFIK_ROUTER_NAME}.rule=Host(`${SITE_HOST}`)"
+            - "traefik.http.routers.${TRAEFIK_ROUTER_NAME}.entrypoints=websecure"
+            - "traefik.http.routers.${TRAEFIK_ROUTER_NAME}.tls=true"
+            - "traefik.http.routers.${TRAEFIK_ROUTER_NAME}.certresolver=letsencrypt"
+            - "traefik.http.services.${TRAEFIK_ROUTER_NAME}.loadbalancer.server.port=80"
+        networks:
+            - web
+
+networks:
+    traefik:
+        external: true
+        name: web
