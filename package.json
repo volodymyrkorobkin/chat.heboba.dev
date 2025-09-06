@@ -4,7 +4,12 @@
     "description": "chat.heboba.dev is a simple chat application built with React. The main goal of this project is to improve skills with Docker, pipelines, pull requests and open source contribution. More features will be added in the future.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "echo \"(no build step for static)\""
+    },
+    "dependencies": {
+        "express": "^4.19.2",
+        "compression": "^1.7.4",
+        "helmet": "^7.1.0"
     },
     "repository": {
         "type": "git",
