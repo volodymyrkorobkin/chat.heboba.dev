@@ -1,0 +1,10 @@
+services:
+    ${TRAEFIK_ROUTER_NAME}:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                BUILD_DIR: dist
+        ports:
+            - "80:80"
+        restart: unless-stopped
