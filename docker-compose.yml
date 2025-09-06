@@ -1,5 +1,5 @@
 services:
-    ${TRAEFIK_ROUTER_NAME}:
+    chat:
         build:
             context: .
             dockerfile: Dockerfile
