@@ -27,7 +27,7 @@ jobs:
                   script_stop: true
                   script: |
                       set -e
-                      cd /home/ubuntu/projects/chat.heboba.dev
+                      cd /home/deploy/projects/chat.heboba.dev
                       git fetch --all
                       git reset --hard origin/main
 
