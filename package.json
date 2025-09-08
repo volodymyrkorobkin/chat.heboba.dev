@@ -1,25 +1,27 @@
 {
-    "name": "chat.heboba.dev",
-    "version": "1.0.0",
-    "description": "chat.heboba.dev is a simple chat application built with React. The main goal of this project is to improve skills with Docker, pipelines, pull requests and open source contribution. More features will be added in the future.",
-    "main": "index.js",
-    "scripts": {
-        "build": "echo \"(no build step for static)\""
-    },
-    "dependencies": {
-        "express": "^4.19.2",
-        "compression": "^1.7.4",
-        "helmet": "^7.1.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/volodymyrkorobkin/chat.heboba.dev.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/volodymyrkorobkin/chat.heboba.dev/issues"
-    },
-    "homepage": "https://github.com/volodymyrkorobkin/chat.heboba.dev#readme"
+  "name": "chat.heboba.dev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.5.2"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2",
+    "@eslint/eslintrc": "^3"
+  }
 }

@@ -1,5 +1,13 @@
 services:
     chat:
+        name: chat.heboba.dev
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            - NODE_ENV=production
+            - PORT=3000
+            - HOSTNAME=0.0.0.0
         labels:
             - "traefik.enable=true"
             # Router

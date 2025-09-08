@@ -7,11 +7,7 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
-        env:
-            CI: true
-            NPM_CONFIG_FUND: false
-            NPM_CONFIG_AUDIT: false
-            NPM_CONFIG_LEGACY_PEER_DEPS: true
+        environment: PROD
 
         steps:
             - name: Checkout (optional)
@@ -31,10 +27,8 @@ jobs:
                       git fetch --all
                       git reset --hard origin/main
 
-                      # env for prod override (Traefik and frontend build directory)
                       export SITE_HOST=${{ secrets.SITE_HOST }}
                       export INTERNAL_PORT=3000
-                      export BUILD_DIR=dist
 
                       # build and deploy
                       docker compose -f docker-compose.yml -f docker-compose.prod.yml build --no-cache
