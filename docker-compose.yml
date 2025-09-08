@@ -4,5 +4,5 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${DEV_PORT}:3000"
+      - "${DEV_PORT}:${INTERNAL_PORT}"
     restart: unless-stopped
