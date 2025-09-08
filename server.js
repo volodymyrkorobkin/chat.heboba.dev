@@ -3,7 +3,7 @@ import compression from "compression";
 import helmet from "helmet";
 
 const app = express();
-const PORT = process.env.DEV_PORT || 3000;
+const PORT = 3000;
 
 // base middleware
 app.use(helmet({ contentSecurityPolicy: false }));
@@ -32,5 +32,5 @@ app.get("*", (req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
+    console.log(`Server running on http://0.0.0.0:3000`);
 });
