@@ -36,8 +36,8 @@ jobs:
                       export INTERNAL_PORT=3000
 
                       # build and deploy
-                      docker compose -f docker-compose.yml -f docker-compose.prod.yml build --no-cache
-                      docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --remove-orphans
+                      docker compose -f docker-compose.prod.yml build --no-cache
+                      docker compose -f docker-compose.prod.yml up -d --remove-orphans
 
                       # cleanup
                       docker image prune -f
