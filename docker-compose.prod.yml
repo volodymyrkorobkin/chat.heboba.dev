@@ -3,6 +3,9 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        image: ""
+        command: ["node", "server.js"]
+        volumes: []
         environment:
             - NODE_ENV=production
             - PORT=3000
